@@ -13,8 +13,8 @@ async function bootstrap() {
   });
   app.useGlobalPipes(new ValidationPipe({ whitelist: true, transform: true }));
   app.useStaticAssets(join(process.cwd(), 'uploads'), { prefix: '/uploads' });
-  const port = process.env.PORT || 4000;
-  await app.listen(port);
+  const port = Number(process.env.PORT) || 5010;
+  await app.listen(port, '127.0.0.1');
   console.log(`NetVerge API running on http://localhost:${port}/api`);
 }
 bootstrap();
